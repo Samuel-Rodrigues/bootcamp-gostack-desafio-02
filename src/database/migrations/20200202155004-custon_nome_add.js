@@ -1,20 +1,10 @@
-'use strict';
-
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize) =>
+    queryInterface.addColumn('recipientes', 'nome', {
+      type: Sequelize.STRING,
+      unique: true,
+      allowNull: false,
+    }),
 
-    return queryInterface.addColumn(
-      'recipientes',
-      'nome',
-      {
-        type: Sequelize.STRING,
-        unique: true,
-        allowNull: false
-      }
-    )
-
-  },
-
-  down: (queryInterface, Sequelize) => {
-  }
+  down: (queryInterface, Sequelize) => {},
 };

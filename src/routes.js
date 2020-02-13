@@ -1,25 +1,25 @@
-import { Router } from 'express'
+import { Router } from 'express';
 
-//importe dos controllers
-import UserController from './app/controllers/UserController'
+// importe dos controllers
+import UserController from './app/controllers/UserController';
 
-import SessionController from './app/controllers/SessionController'
+import SessionController from './app/controllers/SessionController';
 
-import RecipientController from './app/controllers/RecipienteController'
+import RecipientController from './app/controllers/RecipienteController';
 
-import authMiddleware from './app/middlewares/auth'
+import authMiddleware from './app/middlewares/auth';
 
-const routes = new Router()
+const routes = new Router();
 
-//rotas propriamente dita
-routes.post('/users', UserController.store)
+// rotas propriamente dita
+routes.post('/users', UserController.store);
 
-routes.put('/users', authMiddleware, UserController.update)
+routes.put('/users', authMiddleware, UserController.update);
 
-routes.post('/sessions', SessionController.store)
+routes.post('/sessions', SessionController.store);
 
-//Recipient
-routes.post('/recipient', authMiddleware, RecipientController.store)
-routes.put('/recipient/:id', authMiddleware, RecipientController.update)
+// Recipient
+routes.post('/recipient', authMiddleware, RecipientController.store);
+routes.put('/recipient/:id', authMiddleware, RecipientController.update);
 
-export default routes
+export default routes;
