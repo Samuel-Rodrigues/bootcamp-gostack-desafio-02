@@ -20,5 +20,6 @@ routes.post('/sessions', SessionController.store)
 
 //Recipient
 routes.post('/recipient', authMiddleware, RecipientController.store)
+routes.put('/recipient/:id', authMiddleware, RecipientController.update)
 
 export default routes

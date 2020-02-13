@@ -14,23 +14,53 @@ class RecipienteController {
       cidade: Yup.string().required(),
       cep: Yup.number().required()
     })
-    if (!(await schema.isValid(req.body.recipiente))) {
+    if (!(await schema.isValid(req.body))) {
       return res.json({ error: 'Alguma coisa deu errado' })
     }
 
-    const { nome } = req.body.recipiente
+    const { nome } = req.body
 
     if (await Recipiente.findOne({ where: { nome: nome } })) {
       return res.status(401).json({ error: 'Já existe um recipiente com esse nome' })
     }
 
-    const { rua, numero } = await Recipiente.create(req.body.recipiente)
+    const { rua, numero } = await Recipiente.create(req.body)
 
     return res.json({
       nome,
       rua,
       numero
     })
+  }
+
+  async update(req, res) {
+
+    const schema = Yup.object().shape({
+      nome: Yup.string(),
+      rua: Yup.string(),
+      numero: Yup.number(),
+      complemento: Yup.string(),
+      estado: Yup.string(),
+      cidade: Yup.string(),
+      cep: Yup.number()
+    })
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(401).json({ erro: 'Algo deu errado' })
+    }
+
+    const { nome } = req.body
+
+    if (await Recipiente.findOne({ where: { nome: nome } })) {
+      return res.status(401).json({ error: 'Já existe um recipiente com esse nome' })
+    }
+
+    const recipiente = await Recipiente.findByPk(req.params.id)
+
+    recipiente.update(req.body)
+
+    return res.json(recipiente)
+
   }
 }
 
