@@ -4,6 +4,14 @@
 
 <h3 align="center">
   Desafio 2: FastFeet, o início
+  
+</h3>
+<h4 align="center">
+Para testar no insomnia:
+</h4>
+
+<h3 align="center">
+<a href="https://insomnia.rest/run/?label=FAST%20FEET&uri=https%3A%2F%2Fraw.githubusercontent.com%2FSamuel-Rodrigues%2Fbootcamp-gostack-desafio-02%2Fmaster%2Finsomnia%2520-%2520Desafio%252002%2520FastFeet.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </h3>
 
 <h3 align="center">
